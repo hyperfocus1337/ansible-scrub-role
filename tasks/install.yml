@@ -1,0 +1,5 @@
+---
+- name: install scrub
+  apt: name=scrub
+       update_cache=yes
+       state=present

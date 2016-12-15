@@ -1,0 +1,9 @@
+---
+- name: scrub
+  hosts: all
+  user: root
+  become: true
+  roles:
+  - scrub
+  vars_files:
+  - vars/scrub.yml

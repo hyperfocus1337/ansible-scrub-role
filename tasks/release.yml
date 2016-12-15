@@ -1,0 +1,21 @@
+---
+- name: install wget
+  apt: name=wget
+       update_cache=yes
+       state=present
+
+
+- name: download scrub
+  get_url: url=https://github.com/chaos/scrub/releases/download/{{ scrub_version }}/{{ scrub_archive }}
+           dest={{ scrub_path }}/{{ scrub_archive }}
+
+
+- name: unpack scrub archive
+  unarchive: src={{ scrub_path }}/{{ scrub_archive }}
+             dest={{ scrub_path }}/scrub
+             remote_src=yes
+
+
+- name: delete scrub archive
+  file: path={{ scrub_path }}/{{ scrub_archive }}
+        state=absent

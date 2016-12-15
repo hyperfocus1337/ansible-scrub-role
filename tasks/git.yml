@@ -1,0 +1,10 @@
+---
+- name: install git
+  apt: name=git
+       update_cache=yes
+       state=present
+
+
+- name: download scrub
+  git: repo=https://github.com/chaos/scrub.git
+       dest={{ scrub_path }}/scrub

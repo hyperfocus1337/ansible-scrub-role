@@ -1,0 +1,12 @@
+---
+- include: git.yml
+  tags: scrub_download_git
+
+- include: release.yml
+  tags: scrub_download_release
+
+- include: compile.yml
+  tags: scrub_compile
+
+- include: install.yml
+  tags: scrub_install

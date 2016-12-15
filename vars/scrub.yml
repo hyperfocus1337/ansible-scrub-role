@@ -1,0 +1,6 @@
+---
+scrub_version: 2.6.1
+scrub_folder: scrub-2.6.1
+scrub_archive: scrub-2.6.1.tar.gz
+scrub_path: /opt
+binary_path: /usr/local/bin

@@ -1,0 +1,21 @@
+---
+- name: install make
+  apt: name=make
+       update_cache=yes
+       state=present
+
+
+- name: autogen
+  command: ./autogen.sh chdir={{ scrub_path }}/scrub creates={{ binary_path }}/scrub
+
+
+- name: configure
+  command: ./configure --prefix=/usr --mandir=/usr/share/man chdir={{ scrub_path }}/scrub creates={{ binary_path }}/scrub
+
+
+- name: make
+  command: make chdir={{ scrub_path }}/scrub creates={{ binary_path }}/scrub
+
+
+- name: make install
+  command: make DESTDIR="{{ binary_location }}" install chdir={{ scrub_path }}/scrub creates={{ binary_path }}/scrub
